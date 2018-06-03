@@ -16,7 +16,8 @@ type Props = {
 const { Consumer, Provider } = createContext({
   activeScreen: 'posts',
   actions: {
-    updateActiveScreen(nextScreen: string) {},
+    // $FlowFixMe
+    updateActiveScreen() {},
   },
 });
 
