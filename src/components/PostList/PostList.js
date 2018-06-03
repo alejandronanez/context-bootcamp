@@ -3,7 +3,7 @@ import React from 'react';
 import { getPosts } from 'utils/api';
 import { withPosts } from 'hoc/withPosts';
 import { type Post } from 'types';
-import { PostItem } from 'components/PostItem/PostItem';
+import PostItem from 'components/PostItem/PostItem';
 
 type Props = {
   posts: Array<Post>,
@@ -14,7 +14,7 @@ type Props = {
   updateError: (error: string) => void,
 };
 
-class PostList extends React.Component<Props> {
+export class PostList extends React.Component<Props> {
   static defaultProps: Props = {
     posts: [],
     error: '',

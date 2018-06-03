@@ -57,4 +57,5 @@ export class PostsProvider extends React.Component<Props, State> {
     return <Provider value={this.state}>{this.props.children}</Provider>;
   }
 }
+
 export const PostsConsumer = Consumer;

@@ -3,7 +3,8 @@ import React from 'react';
 import { PostsProvider } from 'providers/Post/PostProvider';
 import { RouteProvider, RouteConsumer } from 'providers/Route/RouteProvider';
 import PostList from 'components/PostList/PostList';
-import { Route } from 'components/Route/Route';
+import PostItem from 'components/PostItem/PostItem';
+import Route from 'components/Route/Route';
 
 const style = {
   backgroundColor: '#ccc',
@@ -39,7 +40,7 @@ const App = () => (
         <PostList />
       </Route>
       <Route activeScreen="post">
-        <h1>One Post</h1>
+        <PostItem body="something cool" title="The title" />
       </Route>
     </PostsProvider>
   </RouteProvider>

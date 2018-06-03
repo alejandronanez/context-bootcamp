@@ -12,3 +12,5 @@ export const PostItem = (postInfo: Props) => (
     <p>{postInfo.body}</p>
   </div>
 );
+
+export default PostItem;

@@ -23,3 +23,5 @@ export class Route extends Component<Props> {
     );
   }
 }
+
+export default Route;
