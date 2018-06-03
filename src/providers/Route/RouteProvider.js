@@ -16,7 +16,7 @@ type Props = {
 const { Consumer, Provider } = createContext({
   activeScreen: 'posts',
   actions: {
-    updateActiveScreen() {},
+    updateActiveScreen(nextScreen: string) {},
   },
 });
 
