@@ -4,22 +4,19 @@ import { createContext } from 'react';
 
 export type State = {
   activeScreen: string,
-  actions: {
-    updateActiveScreen: (nextScreen: string) => void,
-  },
+  updateActiveScreen: (nextScreen: string) => void,
 };
 
 type Props = {
   children?: React.Node,
 };
 
-const { Consumer, Provider } = createContext({
-  activeScreen: 'posts',
-  actions: {
-    // $FlowFixMe
+const { Consumer, Provider } = createContext(
+  ({
+    activeScreen: 'posts',
     updateActiveScreen() {},
-  },
-});
+  }: State)
+);
 
 export class RouteProvider extends React.Component<Props, State> {
   updateActiveScreen = (nextScreen: string) => {
@@ -28,9 +25,7 @@ export class RouteProvider extends React.Component<Props, State> {
 
   state: State = {
     activeScreen: 'posts',
-    actions: {
-      updateActiveScreen: this.updateActiveScreen,
-    },
+    updateActiveScreen: this.updateActiveScreen,
   };
 
   render() {

@@ -1,8 +1,12 @@
 // @flow
 import * as React from 'react';
 import { PostsConsumer } from 'providers/Post/PostProvider';
+import { extractStateFromContext } from 'utils/utils';
 
-export const withPosts = (Component: React.ComponentType<any>) => {
+export const withPosts = (
+  Component: React.ComponentType<any>,
+  options?: Array<string>
+) => {
   class WithPosts extends React.Component<any> {
     render() {
       return (
@@ -10,12 +14,7 @@ export const withPosts = (Component: React.ComponentType<any>) => {
           {context => (
             <Component
               {...this.props}
-              posts={context.posts}
-              loading={context.loading}
-              error={context.error}
-              updatePosts={context.actions.updatePosts}
-              updateLoading={context.actions.updateLoading}
-              updateError={context.actions.updateError}
+              {...extractStateFromContext(context, options)}
             />
           )}
         </PostsConsumer>

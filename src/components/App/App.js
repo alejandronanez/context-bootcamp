@@ -5,6 +5,7 @@ import { RouteProvider, RouteConsumer } from 'providers/Route/RouteProvider';
 import PostList from 'components/PostList/PostList';
 import PostItem from 'components/PostItem/PostItem';
 import Route from 'components/Route/Route';
+import { withCommon } from 'hoc/withCommon';
 
 const style = {
   backgroundColor: '#ccc',
@@ -22,14 +23,11 @@ const App = () => (
         <React.Fragment>
           <div
             style={style}
-            onClick={() => context.actions.updateActiveScreen('posts')}
+            onClick={() => context.updateActiveScreen('posts')}
           >
             All posts
           </div>
-          <div
-            style={style}
-            onClick={() => context.actions.updateActiveScreen('post')}
-          >
+          <div style={style} onClick={() => context.updateActiveScreen('post')}>
             Individual post
           </div>
         </React.Fragment>
@@ -46,4 +44,4 @@ const App = () => (
   </RouteProvider>
 );
 
-export default App;
+export default withCommon(App, ['error', 'loading']);
